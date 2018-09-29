@@ -8,7 +8,7 @@ const level = require("level");
 const db = level("./levelDB");
 const HDKey = require('hdkey');
 
- 
+ // output absorb joke mobile jazz sadness pioneer coffee destroy brisk auction truth
 program
   .version('0.1.0')
   .option('-p, --peppers', 'Add peppers')
@@ -32,6 +32,7 @@ program.command('masterKey')
     .action(async function () {
         let mnemonic = await levelGet('mnemonic');
         let seed = bip39.mnemonicToSeed(mnemonic);
+        console.log('seed', seed.toString('hex'));
         let hdkey = HDKey.fromMasterSeed(seed);
         // console.log(hdkey.privateExtendedKey);
         console.log(hdkey.publicExtendedKey);

@@ -8,8 +8,16 @@ const axiosInstance = axios.create({
 });
 
 
-async function txsByAddress (address) {
-    let result = await axiosInstance(`/api/txs/?address=${address}`);
+async function txsByAddress (address, page = 1) {
+    let result = await axiosInstance(`/api/txs/?address=${address}&page=${page}`);
+    if(result.status !== 200) {
+        console.log(result);
+    }
+    return result.data;
+}
+
+async function txsByMulAddress (addresses) {
+    let result = await axiosInstance(`/api/addrs/${addresses.join()}/txs?from=0&to=2`);
     return result.data;
 }
 
@@ -19,10 +27,14 @@ module.exports = {
     txsByAddress,
 };
 
-module.exports = axiosInstance;
 
+/* ;(async () => {
+    // let result = await axiosInstance('/api/block-index/0');
+    // console.log(result.data);
 
-;(async () => {
-    let result = await axiosInstance('/api/block/0000000000000000079c58e8b5bce4217f7515a74b170049398ed9b8428beb4a');
-    console.log(result.data);
-})();
+    // result = await axiosInstance('/api/block/000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943');
+    // console.log(result.data);
+    let data = await txsByAddress('mmhmMNfBiZZ37g1tgg2t8DDbNoEdqKVxAL', 2);
+    console.log(data);
+    // console.log(data.txs[0].vout.map(i => console.log(i.scriptPubKey)));
+})(); */

@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "bip32-utils": "^0.11.1",
     "bip39": "^2.5.0",
+    "bitcoinjs-lib": "^4.0.2",
+    "cb-blockr": "^3.1.2",
     "chalk": "^2.4.1",
     "commander": "^2.18.0",
     "hdkey": "^1.1.0",
