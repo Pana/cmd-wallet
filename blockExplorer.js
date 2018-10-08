@@ -27,11 +27,25 @@ async function txsByMulAddress (addresses) {
     return result.data;
 }
 
+async function utxoByMulAddress (addresses) {
+    let result = await axiosInstance(`/api/addrs/${addresses.join()}/utxo`);
+    return result.data;
+}
+
+async function broadTx (tx) {
+    let result = await axiosInstance.post('/api/tx/send', {
+        rawtx: tx
+    });
+    return result.data;
+}
+
 
 module.exports = {
     axios: axiosInstance,
     txsByAddress,
-    balanceByAddress
+    balanceByAddress,
+    utxoByMulAddress,
+    broadTx
 };
 
 
