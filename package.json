@@ -21,6 +21,7 @@
     "inquirer": "^6.2.0",
     "level": "^4.0.0",
     "lowdb": "^1.0.0",
+    "node-hid": "^0.7.3",
     "pouchdb": "^7.0.0",
     "pouchdb-find": "^7.0.0",
     "progress": "^2.0.0",

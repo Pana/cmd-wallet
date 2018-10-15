@@ -157,9 +157,10 @@ function getAddress (pubkey) {
     try {
         let seed = 'ebe8c27fc19e73a070ac9565d10e728f800c828a40d31dc3babfab12686b14c1b54d5a82051b1d393570e9e08ad470281ba674eaf36dc990bb7dfae1c6c8d8f4';
         let hdAddr = new HDaddr(seed);
-        await hdAddr.initialize();
-        await hdAddr.transfer('mz26TUAuqYMcqEi3Hp5PMcYYCibSpGAEFu', 0.001);
-        // console.log("balance: ", b);
+        // await hdAddr.initialize();
+        // await hdAddr.transfer('mz26TUAuqYMcqEi3Hp5PMcYYCibSpGAEFu', 0.001);
+        let b = await hdAddr.getBalance()
+        console.log("balance: ", b);
     } catch(e) {
         console.error(e);
     }
